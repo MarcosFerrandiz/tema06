@@ -1,5 +1,7 @@
 package com.marcosferrandiz.tema06.Ejercicio5;
 
+
+
 public class Circunferencia {
 
     private punto centro;
@@ -43,6 +45,9 @@ public class Circunferencia {
 
     @Override
     public String toString() {
+        if (this.centro.getX() == 0 && this.centro.getY() == 0){
+            return "Círcunferencia de radio"+ radio+ " cm situada en el origen de coordenadas";
+        }
         return "Circunferencia{" + "centro=" + centro + ", radio=" + radio + '}';
     }
 }
