@@ -1,6 +1,6 @@
 package com.marcosferrandiz.tema06.Ejercicio3;
 
-public class alumno {
+public class Alumno {
     private int nia;
     private String nombre;
     private String apellidos;
@@ -8,7 +8,7 @@ public class alumno {
     private String grupo;
     private int tel;
 
-    public alumno(int nia, String nombre, String apellidos, String nacimiento, String grupo, int tel) {
+    public Alumno(int nia, String nombre, String apellidos, String nacimiento, String grupo, int tel) {
         this.nia = nia;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -67,6 +67,7 @@ public class alumno {
 
     @Override
     public String toString() {
-        return "alumno{" + "nia=" + nia + ", nombre='" + nombre + '\'' + ", apellidos='" + apellidos + '\'' + ", nacimiento='" + nacimiento + '\'' + ", grupo='" + grupo + '\'' + ", tel=" + tel + '}';
+        return "Alumno{" + "nia=" + nia + ", nombre='" + nombre + '\'' + ", apellidos='" + apellidos + '\'' + ", nacimiento='" + nacimiento + '\'' + ", grupo='" + grupo + '\'' + ", tel=" + tel + '}';
     }
+
 }
