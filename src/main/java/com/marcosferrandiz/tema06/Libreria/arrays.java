@@ -1,7 +1,6 @@
-package com.marcosferrandiz.examen.libreria;
+package com.marcosferrandiz.tema06.libreria;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class arrays {
     private static boolean relleno = false;

@@ -1,4 +1,4 @@
-package com.marcosferrandiz.examen.libreria;
+package com.marcosferrandiz.tema06.libreria;
 
 import java.util.Scanner;
 

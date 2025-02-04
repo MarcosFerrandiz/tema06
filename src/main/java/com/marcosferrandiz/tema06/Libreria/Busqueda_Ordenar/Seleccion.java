@@ -1,6 +1,6 @@
-package com.marcosferrandiz.examen.libreria.Busqueda_Ordenar;
+package com.marcosferrandiz.tema06.libreria.Busqueda_Ordenar;
 
-import com.marcosferrandiz.examen.libreria.aleatorios;
+import com.marcosferrandiz.tema06.libreria.aleatorios;
 
 import java.util.Arrays;
 

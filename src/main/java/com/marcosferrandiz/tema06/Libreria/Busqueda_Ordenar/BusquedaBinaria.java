@@ -1,4 +1,4 @@
-package com.marcosferrandiz.examen.libreria.Busqueda_Ordenar;
+package com.marcosferrandiz.tema06.libreria.Busqueda_Ordenar;
 
 public class BusquedaBinaria {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.marcosferrandiz.examen.libreria;
+package com.marcosferrandiz.tema06.libreria;
 
 public class toStrings {
     /**
@@ -32,7 +32,6 @@ public class toStrings {
     /**
      * Hace que un array entero pase a ser un string
      * @param array Array entero que queremos pasar a string
-     * @param cantDecimales la cantidad de decimales que queremos mostrar
      * @return Devuelve el array entero pero como string
      */
     public static String arrayToString(int[] array){
