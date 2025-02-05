@@ -1,14 +1,6 @@
 package com.marcosferrandiz.tema06.pilaArrays;
 
-/**
- * Pila
- * License: 🅮 Public Domain
- * Ejercicios de Pilas y Colas
- * @author Germán Gascón <ggascon@gmail.com>
- * @version 0.1, 2020-01-30
- * @since 0.1, 2020-01-30
- **/
-public class Pila {
+public class PilaString {
     /** Tamaño inicial por defecto */
     private static final int INITIAL_SIZE = 10;
     /** Factor de crecimiento cada vez que el array requiera ser redimensionado */
@@ -16,14 +8,14 @@ public class Pila {
     /** Valor con el que reconocemos una condición de error */
     private static final double ERROR = Double.NEGATIVE_INFINITY;
     /** Array donde se van a guardar los valores de la pila */
-    private double[] data;
+    private String[] data;
     /** Tamaño actual de la pila */
     private int size;
 
     /**
      * Crea una pila con el tamaño inicial por defecto INITIAL_SIZE
      */
-    public Pila() {
+    public PilaString() {
         this(INITIAL_SIZE);
     }
 
@@ -31,8 +23,8 @@ public class Pila {
      * Crea una pila de tamaño inicial recibido como parámetro
      * @param size Capacidad inicial de la pila
      */
-    public Pila(int size) {
-        data = new double[size];
+    public PilaString(int size) {
+        data = new String[size];
         this.size = 0;
     }
 
@@ -40,7 +32,7 @@ public class Pila {
      * Añade un elemento a la cima de la pila
      * @param e Elemento a añadir
      */
-    public void push(double e) {
+    public void push(String e) {
         if (isFull()) {
             expand();
         }
@@ -52,7 +44,7 @@ public class Pila {
      * Expande el tamaño de la pila con el factor de crecimiento indicado por GROW_FACTOR
      */
     private void expand() {
-        double[] aux = new double[Math.round(data.length * GROW_FACTOR)];
+        String[] aux = new String[Math.round(data.length * GROW_FACTOR)];
         for (int i = 0; i < data.length; i++) {
             aux[i] = data[i];
         }
@@ -63,8 +55,8 @@ public class Pila {
      * Extrae el elemento que ocupa la cima de la pila
      * @return El elemento de la cima o Double.NEGATIVE_INFINITY si la pila está vacía
      */
-    public double pop() {
-        double e = ERROR;
+    public String pop() {
+        String e = String.valueOf(ERROR);
         if (!isEmpty()) {
             e = data[size - 1];
             size--;
@@ -76,8 +68,8 @@ public class Pila {
      * Obtiene el valor (sin extraer) del elemento que ocupa la cima de la pila
      * @return El elemento de la cima o Double.NEGATIVE_INFINITY si la pila está vacía
      */
-    public double top() {
-        double e = ERROR;
+    public String top() {
+        String e = String.valueOf(ERROR);
         if (!isEmpty()) {
             e = data[size - 1];
         }
