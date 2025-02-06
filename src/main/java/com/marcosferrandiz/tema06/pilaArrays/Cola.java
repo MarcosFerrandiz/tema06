@@ -1,83 +1,89 @@
 package com.marcosferrandiz.tema06.pilaArrays;
 
 public class Cola {
-    private static final double ERROR = Double.NEGATIVE_INFINITY;
-    private static final int INITIAL_SIZE = 10;
-    private static final float GROW_FACTOR = 2f;
-    private static double[] data;
-    private static int size;
+    /** Capacidad inicial por defecto */
+    private static final int INITIAL_CAPACITY = 10;
+    /** Valor con el que reconocemos una condición de error */
+    private final DynamicArray data;
 
+    /**
+     * Crea una cola con la capacidad inicial por defecto
+     */
     public Cola() {
-        this(INITIAL_SIZE);
+        this(INITIAL_CAPACITY);
     }
 
     /**
-     * Crea una pila de tamaño inicial recibido como parámetro
-     * @param size Capacidad inicial de la pila
+     * Crea una cola con una capacidad inicial
+     * @param initialCapacity Capacidad inicial de la
      */
-    public Cola(int size) {
-        data = new double[size];
-        this.size = 0;
+    public Cola(int initialCapacity) {
+        data = new DynamicArray(initialCapacity);
     }
-    public boolean isEmpty() {
-        return size == 0;
-    }
+
+    /**
+     * Obtiene el número de elementos que están en la cola
+     * @return Cantidad de elementos en la cola
+     */
     public int size() {
-        return size;
-    }
-    private boolean isFull() {
-        return size == data.length;
+        return data.size();
     }
 
-    private void expand() {
-        double[] aux = new double[Math.round(data.length * GROW_FACTOR)];
-        for (int i = 0; i < data.length; i++) {
-            aux[i] = data[i];
-        }
-        data = aux;
+    /**
+     * Determina si la cola está vacía
+     * @return true si está vacía, false en caso contrario
+     */
+    public boolean isEmpty() {
+        return data.size() == 0;
     }
 
-    public void push(double e) {
-        if (isFull()) {
-            expand();
-        }
-        data[size] = e;
-        size++;
+    /**
+     * Añade un elemento al final de la cola
+     * @param value Elemento a añadir
+     * @return true
+     */
+    public boolean add(double value) {
+        return data.add(value);
     }
 
-    public void moveToLeft(){
-        for (int i = 0; i < data.length -1 ; i++) {
-            data[i] = data[i+1];
-        }
+    /**
+     * Extrae (eliminando) el primer elemento de la cola
+     * @return Elemento extraído
+     */
+    public double remove() {
+        if (isEmpty())
+            return Double.POSITIVE_INFINITY;
+        return data.remove(0);
     }
 
-    public double pop() {
-        double e = ERROR;
-        if (!isEmpty()) {
-            e = data[0];
-            size--;
-            moveToLeft();
-        }
-        return e;
-    }
-
+    /**
+     * Consulta (sin eliminar) el primer elemento de la cola
+     * @return Primer elemento de la cola
+     */
     public double peek() {
-        double e = ERROR;
-        if (!isEmpty()) {
-            e = data[0];
-        }
-        return e;
+        if (isEmpty())
+            return Double.POSITIVE_INFINITY;
+        return data.get(0);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cola cola = (Cola) o;
+
+        return data.equals(cola.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return data.hashCode();
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[ ");
-        for (int i = 0; i < size; i++) {
-            sb.append(data[i]).append(" ");
-        }
-        sb.append("]");
-        return sb.toString();
+        return "ColaConsulta " + data;
     }
-
 }
+
