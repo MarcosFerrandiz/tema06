@@ -1,37 +1,78 @@
 package com.marcosferrandiz.tema06.pilaArrays.Ejercicio7;
 
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class Cola<T> {
-    private Queue<T> cola;
+    private final static int DEFAULT_CAPACITY = 10;
+    private final static float GROW_FACTOR = 2f;
+    private T[] data;
+    private int size;
 
-    public Cola() {
-        cola = new LinkedList<>();
+    public Cola(T[] data, int size) {
+        this.data = data;
+        this.size = size;
     }
 
-    public void add(T elemento) {
-        cola.add(elemento);
+    public Cola() {this(DEFAULT_CAPACITY); }
+
+    public Cola(int capacity){
+        @SuppressWarnings("unchecked")
+        T[] temp = (T[]) new Object[capacity];
+        data = temp;
+        size = 0;
     }
 
-    public T remove() {
-        return cola.poll();
+    public boolean add(T value){
+        if (isFull())
+            expand();
+        data[size]=value;
+        size++;
+        return true;
     }
+    private boolean isFull(){
+        return size== data.length;
+    }
+    private void expand(){
+        @SuppressWarnings("unchecked")
+        T[] copy = (T[]) new Object[Math.round(data.length*GROW_FACTOR)];
+        for (int i = 0; i < size ; i++) {
+            copy[i] = data[i];
+        }
+        data = copy;
+    }
+
+    public T remove(){
+        if (isEmpty())
+            return null;
+        else {
+            T valor = data[0];
+            moveToLeft(0);
+            return valor;
+        }
+    }
+
+    private void moveToLeft(int index){
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i+1];
+        }
+        size--;
+    }
+
 
     public T peek() {
-        return cola.peek();
+        return data[0];
     }
 
     public boolean isEmpty() {
-        return cola.isEmpty();
+        return size == 0;
     }
 
     public int size() {
-        return cola.size();
+        return size;
     }
+
 
     @Override
     public String toString() {
-        return cola.toString();
+        return data.toString();
     }
 }
