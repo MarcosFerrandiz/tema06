@@ -18,7 +18,7 @@ public class ColaConsulta {
         return colaPacientes;
     }
 
-    public void añadirPaciente(Paciente paciente) {
+    public void anadirPaciente(Paciente paciente) {
         colaPacientes.add(paciente);
     }
 

@@ -1,3 +1,4 @@
+/*
 package com.marcosferrandiz.tema06.pilaArrays;
 
 import com.marcosferrandiz.tema06.libreria.aleatorios;
@@ -20,3 +21,4 @@ public class Ejercicio6 {
         }
     }
 }
+*/

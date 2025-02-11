@@ -11,14 +11,16 @@ public class Hospital {
             consultas[i] = new ColaConsulta(medico);
 
             for (int j = 0; j < CANT_COL_CONS ; j++) {
-                Paciente paciente = new Paciente("Paciente "+(i * 2 + j * 3),String.format("%08d", (i * 2 + j * 3) + (char) ('A'+j)));
-                consultas[i].añadirPaciente(paciente);
+                Paciente paciente = new Paciente("Paciente "+(i * 2 + j * 3),String.format("%08d %C", (i * 20 + j * 3), (char) ('A'+j)));
+                consultas[i].anadirPaciente(paciente);
             }
         }
     }
+
     public ColaConsulta[] getConsultas(){
         return consultas;
     }
+
     public void mostrarColas(){
         for (int i = 0; i < consultas.length ; i++) {
             System.out.println("Consulta "+ (i+1) +": "+consultas[i]);

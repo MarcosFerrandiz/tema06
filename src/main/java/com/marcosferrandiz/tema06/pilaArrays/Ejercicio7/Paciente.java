@@ -39,6 +39,6 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return nombre + " (SIP: " + sip + ") - Llegada: " + fechaHoraIngreso;
+        return "Paciente{" + "nombre='" + nombre + '\'' + ", sip='" + sip + '\'' + ", fechaHoraIngreso=" + fechaHoraIngreso + '}';
     }
 }

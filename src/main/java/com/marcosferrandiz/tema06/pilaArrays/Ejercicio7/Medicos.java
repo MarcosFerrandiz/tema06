@@ -27,6 +27,6 @@ public class Medicos {
 
     @Override
     public String toString() {
-        return nombre + " (Colegiado: " + numeroColegiado + ")";
+        return nombre + " (Medico: " + numeroColegiado + ")";
     }
 }

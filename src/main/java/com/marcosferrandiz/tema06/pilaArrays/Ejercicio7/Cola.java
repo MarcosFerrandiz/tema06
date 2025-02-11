@@ -1,6 +1,8 @@
 package com.marcosferrandiz.tema06.pilaArrays.Ejercicio7;
 
 
+import java.util.Arrays;
+
 public class Cola<T> {
     private final static int DEFAULT_CAPACITY = 10;
     private final static float GROW_FACTOR = 2f;
@@ -73,6 +75,6 @@ public class Cola<T> {
 
     @Override
     public String toString() {
-        return data.toString();
+        return Arrays.toString(data);
     }
 }

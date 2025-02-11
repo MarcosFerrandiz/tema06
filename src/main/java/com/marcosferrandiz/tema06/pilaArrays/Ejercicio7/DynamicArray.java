@@ -1,6 +1,7 @@
 package com.marcosferrandiz.tema06.pilaArrays.Ejercicio7;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class DynamicArray {
     private static final double ERROR = Double.NEGATIVE_INFINITY;
@@ -97,21 +98,12 @@ public class DynamicArray {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        com.marcosferrandiz.tema06.pilaArrays.DynamicArray that = (com.marcosferrandiz.tema06.pilaArrays.DynamicArray) o;
-
-        if (size != that.size) return false;
-
-        for (int i = 0; i < size ; i++) {
-            if (data[i] != that.data[i])
-                return false;
-        }
-        return true;
+        DynamicArray that = (DynamicArray) o;
+        return size == that.size && Objects.deepEquals(data, that.data);
     }
-
 
     @Override
     public int hashCode(){
