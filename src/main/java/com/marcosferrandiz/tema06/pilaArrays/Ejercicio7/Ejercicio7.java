@@ -16,12 +16,20 @@ public class Ejercicio7 {
             switch (deci){
                 case 1:
                     anadirPaciente();
+                    break;
                 case 2:
-
+                    atenderPaciente();
+                    break;
                 case 3:
                     hospital.mostrarColas();
-                case 4:
+                    break;
+                case 4: {
                     System.out.println("Saliendo...");
+                    break;
+                }
+                default: {
+                    System.err.println("Opción no válida");
+                }
             }
 
         }while (deci != 4);
@@ -47,5 +55,20 @@ public class Ejercicio7 {
         Paciente nuevoPaciente = new Paciente(pacienteNombre,pacienteSip);
         hospital.getConsultas()[pacienteConsulta].anadirPaciente(nuevoPaciente);
         System.out.println("Paciente añadido en la consulta "+ (pacienteConsulta + 1));
+    }
+
+    public static void atenderPaciente(){
+        hospital.mostrarColas();
+        System.out.println("Eliga la consulta que quiera para atender al primer paciente (1-5): ");
+        int consultaAtender = Integer.parseInt(input.nextLine())-1;
+        Paciente pacienteAtendido = hospital.getConsultas()[consultaAtender].atenderPaciente();
+
+        if (pacienteAtendido != null){
+            System.out.println("Has atendido al paciente "+ pacienteAtendido);
+        }
+        else {
+            System.out.println("En la consulta "+ consultaAtender+" no hay pacientes que atender");
+        }
+        System.out.println(hospital.getConsultas()[consultaAtender]);
     }
 }

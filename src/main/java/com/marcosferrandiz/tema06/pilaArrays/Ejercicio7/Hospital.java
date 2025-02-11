@@ -11,7 +11,7 @@ public class Hospital {
             consultas[i] = new ColaConsulta(medico);
 
             for (int j = 0; j < CANT_COL_CONS ; j++) {
-                Paciente paciente = new Paciente("Paciente "+(i * 2 + j * 3),String.format("%08d %C", (i * 20 + j * 3), (char) ('A'+j)));
+                Paciente paciente = new Paciente("Paciente "+(i * 2 + j * 3),String.format("%08d%C", (i * 20 + j * 3), (char) ('A'+j)));
                 consultas[i].anadirPaciente(paciente);
             }
         }
