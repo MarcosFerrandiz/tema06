@@ -4,7 +4,7 @@ package com.marcosferrandiz.tema06.pilaArrays.Ejercicio7;
 import java.util.Arrays;
 
 public class Cola<T> {
-    private final static int DEFAULT_CAPACITY = 10;
+    private final static int DEFAULT_CAPACITY = 5;
     private final static float GROW_FACTOR = 2f;
     private T[] data;
     private int size;
@@ -46,17 +46,17 @@ public class Cola<T> {
         if (isEmpty())
             return null;
         else {
-            T valor = data[0];
-            moveToLeft(0);
-            return valor;
+            T e = data[0];
+            size--;
+            moveToLeft();
+            return e;
         }
     }
 
-    private void moveToLeft(int index){
-        for (int i = index; i < size - 1; i++) {
+    private void moveToLeft(){
+        for (int i = 0; i < data.length-1; i++) {
             data[i] = data[i+1];
         }
-        size--;
     }
 
 
@@ -75,6 +75,6 @@ public class Cola<T> {
 
     @Override
     public String toString() {
-        return Arrays.toString(data);
+        return Arrays.toString(Arrays.copyOf(data, size));
     }
 }

@@ -18,7 +18,7 @@ public class Ejercicio7 {
                     anadirPaciente();
                     break;
                 case 2:
-                    atenderPaciente();
+                    atenderAlPaciente();
                     break;
                 case 3:
                     hospital.mostrarColas();
@@ -57,11 +57,11 @@ public class Ejercicio7 {
         System.out.println("Paciente añadido en la consulta "+ (pacienteConsulta + 1));
     }
 
-    public static void atenderPaciente(){
+    public static void atenderAlPaciente(){
         hospital.mostrarColas();
         System.out.println("Eliga la consulta que quiera para atender al primer paciente (1-5): ");
         int consultaAtender = Integer.parseInt(input.nextLine())-1;
-        Paciente pacienteAtendido = hospital.getConsultas()[consultaAtender].atenderPaciente();
+        Paciente pacienteAtendido = hospital.getConsultas()[consultaAtender].getColaPacientes().remove();
 
         if (pacienteAtendido != null){
             System.out.println("Has atendido al paciente "+ pacienteAtendido);
