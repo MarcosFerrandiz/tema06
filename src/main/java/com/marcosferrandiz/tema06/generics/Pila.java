@@ -110,10 +110,10 @@ public class Pila<T> {
         size=0;
     }
 
-    public Cola<T> clone(){
-        Cola<T> copia = new Cola<>(this.data.length);
+    public Pila<T> clone(){
+        Pila<T> copia = new Pila<>(this.data.length);
         for (int i = 0; i < this.size ; i++) {
-            copia.add(this.data[i]);
+            copia.push(this.data[i]);
         }
         return copia;
     }
