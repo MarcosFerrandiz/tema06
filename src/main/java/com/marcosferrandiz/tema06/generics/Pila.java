@@ -127,9 +127,12 @@ public class Pila<T> {
 
 
     public int search(T element){
-        for (int i = 0; i < size ; i++) {
+        if (isEmpty()){
+            return -1;
+        }
+        for (int i = size-1; i >= 0 ; i--) {
             if (data[i].equals(element)){
-                return i+1;
+                return size-i-1;
             }
         }
         return -1;
@@ -153,5 +156,19 @@ public class Pila<T> {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        Pila pila = new Pila();
+        pila.push(1);
+        pila.push(2);
+        pila.push(4);
+        pila.push(2);
+        System.out.println(pila.toString());
+
+        System.out.println(Arrays.toString(pila.peek(2)));
+
+
+
     }
 }
