@@ -9,11 +9,23 @@ public class Bicicleta {
     private final double peso;
     private final double tamanyo;
     private final boolean motor;
-    private final GregorianCalendar fechFab;
+    private final String fechFab;
     private final double precio;
-    private final int stock;
+    private  int stock;
 
-    public Bicicleta(String referencia, String marca, String modelo, float peso, float tamanyo, boolean motor, GregorianCalendar fechFab, double precio, int stock) {
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public Bicicleta(String referencia, String marca, String modelo, double peso, double tamanyo, boolean motor, String fechFab, double precio, int stock) {
         this.referencia = referencia;
         this.marca = marca;
         this.modelo = modelo;
