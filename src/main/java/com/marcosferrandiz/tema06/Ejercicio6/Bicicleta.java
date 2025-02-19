@@ -6,8 +6,8 @@ public class Bicicleta {
     private final String referencia;
     private final String marca;
     private final String modelo;
-    private final float peso;
-    private final float tamanyo;
+    private final double peso;
+    private final double tamanyo;
     private final boolean motor;
     private final GregorianCalendar fechFab;
     private final double precio;
@@ -25,5 +25,12 @@ public class Bicicleta {
         this.stock = stock;
     }
 
+    @Override
+    public String toString() {
+        return "Bicicleta{" + "referencia='" + referencia + '\'' + ", marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + ", peso=" + peso + ", tamanyo=" + tamanyo + ", motor=" + motor + ", fechFab=" + fechFab + ", precio=" + precio + ", stock=" + stock + '}';
+    }
 
+    private String formatFecha(GregorianCalendar fecha){
+        return String.format("%04d-%02d-%02d",fecha.get(GregorianCalendar.YEAR), fecha.get(GregorianCalendar.MONTH),fecha.get(GregorianCalendar.DAY_OF_MONTH));
+    }
 }

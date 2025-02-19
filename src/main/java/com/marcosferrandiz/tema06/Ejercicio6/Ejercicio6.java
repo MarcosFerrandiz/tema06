@@ -3,11 +3,12 @@ package com.marcosferrandiz.tema06.Ejercicio6;
 import com.marcosferrandiz.tema06.libreria.solicitarCosas;
 
 public class Ejercicio6 {
+    private static Bicicleta[] bicicletas;
     public static void main(String[] args) {
         int deci = 0;
         do {
             menuPrincipal();
-            deci = solicitarCosas.solicitarInt("Introduzca ",0);
+            deci = solicitarCosas.solicitarInt(" ",0);
 
             switch (deci){
                 case 1:
