@@ -1,5 +1,8 @@
 package com.marcosferrandiz.tema06.libreria;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class solicitarCosas {
@@ -184,4 +187,128 @@ public class solicitarCosas {
         return entrada.matches(patron);
     }
 
+    /**
+     * Solicita un valor booleano al usuario (true o false)
+     *
+     * @param mensaje Es el mensaje que se mostrará para pedir el valor
+     * @return Devuelve el valor booleano ingresado por el usuario
+     */
+    public static boolean solicitarBoolean(String mensaje) {
+        Scanner scanner = new Scanner(System.in);
+        boolean valido = false;
+        boolean resultado = false;
+
+        do {
+            System.out.println(mensaje + " (true/false)");
+            String entrada = scanner.nextLine();
+            if (entrada.equalsIgnoreCase("true") || entrada.equalsIgnoreCase("false")) {
+                resultado = Boolean.parseBoolean(entrada);
+                valido = true;
+            } else {
+                System.err.println("Entrada no válida. Por favor, ingrese 'true' o 'false'.");
+            }
+        } while (!valido);
+
+        return resultado;
+    }
+
+
+    /**
+     * Solicita una fecha al usuario en el formato especificado y valida si la entrada es correcta.
+     *
+     * @param mensaje        Mensaje que se mostrará al usuario
+     * @param formatoFormato Formato de la fecha esperado (por ejemplo, "dd/MM/yyyy")
+     * @return La fecha ingresada como un objeto LocalDate
+     */
+    public static LocalDate solicitarFecha(String mensaje, String formatoFormato) {
+        Scanner scanner = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formatoFormato);
+        LocalDate fecha = null;
+        boolean valido = false;
+
+        do {
+            try {
+                System.out.println(mensaje + " (" + formatoFormato + "):");
+                String entrada = scanner.nextLine();
+                fecha = LocalDate.parse(entrada, formatter);
+                valido = true;
+            } catch (DateTimeParseException e) {
+                System.err.println("Fecha no válida. Por favor, introduzca la fecha en el formato " + formatoFormato + ".");
+            }
+        } while (!valido);
+
+        return fecha;
+    }
+
+
+    /**
+     * Solicita al usuario un double con un número mínimo
+     *
+     * @param mensaje      El mensaje a mostrar
+     * @param numeroMinimo El número mínimo permitido
+     * @return Devuelve el número double introducido
+     */
+    public static Double solicitarDoubleConMinimo(String mensaje, double numeroMinimo) {
+        Scanner scanner = new Scanner(System.in);
+        double num;
+        boolean valido;
+
+        do {
+            try {
+                System.out.println(mensaje);
+                num = Double.parseDouble(scanner.nextLine());
+                valido = num >= numeroMinimo;
+
+                if (!valido) {
+                    System.err.printf("El número debe ser mayor o igual a %.2f\n", numeroMinimo);
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Entrada no válida. Por favor, introduzca un número válido.");
+                valido = false;
+                num = 0; // Valor temporal para evitar errores de compilación
+            }
+        } while (!valido);
+
+        return num;
+    }
+
+
+    /**
+     * Solicita un texto al usuario sin límite de longitud.
+     *
+     * @param mensaje El mensaje que se mostrará para solicitar el texto.
+     * @return Devuelve el texto introducido por el usuario.
+     */
+    public static String solicitarStringSinLimite(String mensaje) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(mensaje);
+        return scanner.nextLine();
+    }
+
+    /**
+     * Solicita un solo carácter al usuario.
+     *
+     * @param mensaje El mensaje que se mostrará para pedir el carácter.
+     * @return Devuelve el carácter ingresado por el usuario.
+     */
+    public static char solicitarCaracter(String mensaje) {
+        Scanner scanner = new Scanner(System.in);
+        char caracter = '\0';
+        boolean valido = false;
+
+        do {
+            System.out.println(mensaje);
+            String entrada = scanner.nextLine();
+
+            if (entrada.length() == 1) {
+                caracter = entrada.charAt(0);
+                valido = true;
+            } else {
+                System.err.println("Entrada no válida. Por favor, ingrese un único carácter.");
+            }
+        } while (!valido);
+
+        return caracter;
+    }
+    
 }
