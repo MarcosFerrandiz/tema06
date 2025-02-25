@@ -26,61 +26,14 @@ public class Ejercicio3 {
                 System.err.println("El valor introducido no es valido");
             }
             switch (seleccion){
-                case 1 -> nuevoAlumno();
+                //case 1 -> ;
                 //case 2 ->;
-                case 3 -> consultasMenu();
+                //case 3 -> ;
                 //default -> /*Hola*/ ;
             }
         }while (seleccion != 0);
 
 
-    }
-
-    public static void nuevoAlumno(){
-        boolean check = false;
-        int nia;
-        do {
-            System.out.println("Indique el NIA del alumno");
-            nia = Integer.parseInt(input.nextLine());
-            for (int i = 0; i < alumnos.length ; i++) {
-                if (alumnos[i].getNia() == nia){
-                    System.err.println("Ese NIA ya existe");
-                    check = false;
-                } else {
-                    check = true;
-                }
-            }
-        }while (!check);
-        System.out.println("Indique el nombre del Alumno");
-        String nombre = input.nextLine();
-
-        System.out.println("Indique el apellido del Alumno");
-        String apellido = input.nextLine();
-
-        System.out.println("Fecha de nacimiento");
-        String fecha = input.nextLine();
-
-        System.out.println("Grupo");
-        String grupo = input.nextLine();
-
-        System.out.println("Telefono");
-        int telefono = Integer.parseInt(input.nextLine());
-        for (int i = 0; i < alumnos.length ; i++) {
-            alumnos[i] = new Alumno(nia,nombre,apellido,fecha,grupo,telefono);
-        }
-    }
-
-
-    public static void consultasMenu(){
-        System.out.println("***************");
-        System.out.println("** CONSULTAS **");
-        System.out.println("***************");
-        System.out.println("1. Por grupo …");
-        System.out.println("2. Por edad …");
-        System.out.println("3. Por NIA …");
-        System.out.println("4. Por apellidos …");
-        System.out.println("------------------------------");
-        System.out.println("0. Volver al menú principal");
     }
 
 

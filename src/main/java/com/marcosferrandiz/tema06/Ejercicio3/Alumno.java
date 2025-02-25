@@ -1,12 +1,14 @@
 package com.marcosferrandiz.tema06.Ejercicio3;
 
+import java.util.Objects;
+
 public class Alumno {
-    private int nia;
-    private String nombre;
-    private String apellidos;
-    private String nacimiento;
-    private String grupo;
-    private int tel;
+    private final int nia;
+    private final String nombre;
+    private final String apellidos;
+    private final String nacimiento;
+    private final String grupo;
+    private final int tel;
 
     public Alumno(int nia, String nombre, String apellidos, String nacimiento, String grupo, int tel) {
         this.nia = nia;
@@ -21,48 +23,24 @@ public class Alumno {
         return nia;
     }
 
-    public void setNia(int nia) {
-        this.nia = nia;
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getApellidos() {
         return apellidos;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
     public String getNacimiento() {
         return nacimiento;
-    }
-
-    public void setNacimiento(String nacimiento) {
-        this.nacimiento = nacimiento;
     }
 
     public String getGrupo() {
         return grupo;
     }
 
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
-    }
-
     public int getTel() {
         return tel;
-    }
-
-    public void setTel(int tel) {
-        this.tel = tel;
     }
 
     @Override
@@ -70,4 +48,16 @@ public class Alumno {
         return "Alumno{" + "nia=" + nia + ", nombre='" + nombre + '\'' + ", apellidos='" + apellidos + '\'' + ", nacimiento='" + nacimiento + '\'' + ", grupo='" + grupo + '\'' + ", tel=" + tel + '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Alumno alumno = (Alumno) o;
+        return nia == alumno.nia;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(nia);
+    }
 }
