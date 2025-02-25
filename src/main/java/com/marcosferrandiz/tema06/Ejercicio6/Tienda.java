@@ -17,7 +17,6 @@ public class Tienda {
     }
 
     public void mostrarMenu() {
-        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("*************************");
             System.out.println("** GESTIÓN DE BICICLETAS **");
