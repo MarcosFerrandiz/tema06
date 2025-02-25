@@ -1,16 +1,17 @@
 package com.marcosferrandiz.tema06.Ejercicio3;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Alumno {
     private final int nia;
     private final String nombre;
     private final String apellidos;
-    private final String nacimiento;
+    private final LocalDate nacimiento;
     private final String grupo;
     private final int tel;
 
-    public Alumno(int nia, String nombre, String apellidos, String nacimiento, String grupo, int tel) {
+    public Alumno(int nia, String nombre, String apellidos, LocalDate nacimiento, String grupo, int tel) {
         this.nia = nia;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -31,7 +32,7 @@ public class Alumno {
         return apellidos;
     }
 
-    public String getNacimiento() {
+    public LocalDate getNacimiento() {
         return nacimiento;
     }
 
