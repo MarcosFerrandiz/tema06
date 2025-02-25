@@ -1,5 +1,6 @@
 package com.marcosferrandiz.tema06.Ejercicio1;
 
+
 public class Coche {
     public enum TipoCoche{
         MINI, UTILITARIO, FAMILIAR, DEPORTIVO
@@ -85,7 +86,10 @@ public class Coche {
         this.seguro = seguro;
     }
 
-
+    /**
+     * Genera matriculas de forma procedural o como se diga
+     * @return Devuelve un String que es la matricula
+     */
     public static String GenerarMatricula(){
         String matricula = String.format("%04d%c%c%c",numero,letra3,letra2,letra1);
         numero++;
