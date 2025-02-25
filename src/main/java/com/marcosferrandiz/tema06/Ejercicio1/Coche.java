@@ -24,7 +24,7 @@ public class Coche {
         this.modelo = modelo;
         this.color = color;
         this.metal = metal;
-        this.matricula = GenerarMatricula();
+        this.matricula = generarMatricula();
         this.tipo = tipo;
         this.anoFabricacion = anoFabricacion;
         this.seguro = seguro;
@@ -90,7 +90,7 @@ public class Coche {
      * Genera matriculas de forma procedural o como se diga
      * @return Devuelve un String que es la matricula
      */
-    public static String GenerarMatricula(){
+    public static String generarMatricula(){
         String matricula = String.format("%04d%c%c%c",numero,letra3,letra2,letra1);
         numero++;
         if(numero > 9999){
