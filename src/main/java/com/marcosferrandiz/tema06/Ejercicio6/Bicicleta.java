@@ -49,7 +49,7 @@ public class Bicicleta {
 
     @Override
     public String toString() {
-        return "Referencia: " + referencia + "\n" +
+        return "\n Referencia: " + referencia + "\n" +
                 "Marca: " + marca + "\n" +
                 "Modelo: " + modelo + "\n" +
                 "Peso: " + peso + "kg\n" +
@@ -57,6 +57,7 @@ public class Bicicleta {
                 "Motor: " + (tieneMotor ? "Sí" : "No") + "\n" +
                 "Fecha Fabricación: " + fechaFabricacion + "\n" +
                 "Precio: " + precio + "€\n" +
-                "Stock: " + existencias;
+                "Stock: " + existencias+
+                "\n ------------------ \n";
     }
 }
