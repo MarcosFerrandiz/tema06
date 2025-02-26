@@ -6,10 +6,14 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 public class Tienda {
-    private static final int TAMANO_MAX = 100;
-    private Bicicleta[] inventario = new Bicicleta[TAMANO_MAX];
-    private static int contadorBicicletas = 0;
+    private final int TAMANO_MAX;
+    private Bicicleta[] inventario;
+    private static int contadorBicicletas;
 
+    public Tienda() {
+        this.TAMANO_MAX = 100;
+        this.inventario = new Bicicleta[TAMANO_MAX];
+    }
 
     public boolean verificarSiExisteReferencia(String referencia) {
         for (int i = 0; i < inventario.length ; i++) {
