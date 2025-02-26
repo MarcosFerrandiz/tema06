@@ -310,5 +310,8 @@ public class solicitarCosas {
 
         return caracter;
     }
+
+
+
     
 }

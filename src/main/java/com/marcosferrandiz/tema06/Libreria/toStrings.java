@@ -152,5 +152,21 @@ public class toStrings {
         return sb.toString();
     }
 
+    public static String enumToString(Class enumClass) {
+        Enum[] valores = (Enum[]) enumClass.getEnumConstants();
+
+        StringBuilder resultado = new StringBuilder();
+        resultado.append("[");
+        for (int i = 0; i < valores.length; i++) {
+            resultado.append(valores[i]);
+            if (i < valores.length - 1) {
+                resultado.append(", ");
+            }
+        }
+        resultado.append("]");
+
+        return resultado.toString();
+    }
+
 
 }

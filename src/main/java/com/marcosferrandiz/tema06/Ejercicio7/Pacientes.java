@@ -7,8 +7,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Pacientes {
-    private enum Sexo{
-        V, M
+    private final PreRev[] preRev;
+    public enum Sexo{
+        HOMBRE, MUJER, TROMPO_KING_COBRA
     }
     private final int sip;
     private final String nombre;
@@ -16,19 +17,18 @@ public class Pacientes {
     private final int edad;
     private LocalDateTime fechHoraLlegada;
     private final String sintomas;
-    private final double[] preRev;
 
-    public Pacientes(int sip, String nombre, Sexo genero, int edad, LocalDateTime fechHoraLlegada, String sintomas) {
-        this.sip = sip;
-        this.nombre = nombre;
-        this.genero = genero;
-        this.edad = edad;
-        this.fechHoraLlegada = LocalDateTime.now();
+    public Pacientes(String sintomas,LocalDateTime fechHoraLlegada, int edad, Sexo genero, String nombre, int sip, PreRev[] preRev) {
         this.sintomas = sintomas;
-        this.preRev = new double[4];
+        this.fechHoraLlegada = fechHoraLlegada;
+        this.edad = edad;
+        this.genero = genero;
+        this.nombre = nombre;
+        this.sip = sip;
+        this.preRev = preRev;
     }
 
-    public double[] getPreRev() {
+    public PreRev[] getPreRev() {
         return preRev;
     }
 
@@ -64,13 +64,13 @@ public class Pacientes {
     @Override
     public String toString() {
         return "Pacientes{" +
-                "sip=" + sip +
+                ", sip=" + sip +
                 ", nombre='" + nombre + '\'' +
                 ", genero=" + genero +
                 ", edad=" + edad +
                 ", fechHoraLlegada=" + fechHoraLlegada +
                 ", sintomas='" + sintomas + '\'' +
-                ", preRev=" + Arrays.toString(preRev) +
+                "preRev=" + Arrays.toString(preRev)+
                 '}';
     }
 
@@ -79,11 +79,11 @@ public class Pacientes {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pacientes pacientes = (Pacientes) o;
-        return sip == pacientes.sip && edad == pacientes.edad && Objects.equals(nombre, pacientes.nombre) && genero == pacientes.genero && Objects.equals(fechHoraLlegada, pacientes.fechHoraLlegada) && Objects.equals(sintomas, pacientes.sintomas) && Objects.deepEquals(preRev, pacientes.preRev);
+        return sip == pacientes.sip;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sip, nombre, genero, edad, fechHoraLlegada, sintomas, Arrays.hashCode(preRev));
+        return Objects.hashCode(sip);
     }
 }
