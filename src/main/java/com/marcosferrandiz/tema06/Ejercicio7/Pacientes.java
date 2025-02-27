@@ -1,35 +1,23 @@
 package com.marcosferrandiz.tema06.Ejercicio7;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 public class Pacientes {
-    private final PreRev[] preRev;
     public enum Sexo{
         HOMBRE, MUJER, TROMPO_KING_COBRA
     }
     private final int sip;
     private final String nombre;
     private final Sexo genero;
-    private final int edad;
-    private LocalDateTime fechHoraLlegada;
-    private final String sintomas;
+    private final LocalDate fechaNacimiento;
 
-    public Pacientes(String sintomas,LocalDateTime fechHoraLlegada, int edad, Sexo genero, String nombre, int sip, PreRev[] preRev) {
-        this.sintomas = sintomas;
-        this.fechHoraLlegada = fechHoraLlegada;
-        this.edad = edad;
-        this.genero = genero;
-        this.nombre = nombre;
+    public Pacientes(int sip, String nombre, Sexo genero, LocalDate fechaNacimiento) {
         this.sip = sip;
-        this.preRev = preRev;
-    }
-
-    public PreRev[] getPreRev() {
-        return preRev;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public int getSip() {
@@ -44,33 +32,17 @@ public class Pacientes {
         return genero;
     }
 
-    public int getEdad() {
-        return edad;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
-
-    public LocalDateTime getFechHoraLlegada() {
-        return fechHoraLlegada;
-    }
-
-    public void setFechHoraLlegada(LocalDateTime fechHoraLlegada) {
-        this.fechHoraLlegada = fechHoraLlegada;
-    }
-
-    public String getSintomas() {
-        return sintomas;
-    }
-
 
     @Override
     public String toString() {
         return "Pacientes{" +
-                ", sip=" + sip +
+                "sip=" + sip +
                 ", nombre='" + nombre + '\'' +
                 ", genero=" + genero +
-                ", edad=" + edad +
-                ", fechHoraLlegada=" + fechHoraLlegada +
-                ", sintomas='" + sintomas + '\'' +
-                "preRev=" + Arrays.toString(preRev)+
+                ", edad=" + (ChronoUnit.YEARS.between(fechaNacimiento,LocalDate.now())) +
                 '}';
     }
 
